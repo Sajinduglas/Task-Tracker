@@ -1,10 +1,30 @@
+
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
 
+import 'home_screen/home_page.dart';
+
+class SplashScreen extends StatefulWidget {
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    Future.delayed(Duration(seconds: 2)).then((value) => Navigator.pushReplacement(context, MaterialPageRoute(
+      builder: (context) => HomeScreen(),
+    )));
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: LottieBuilder.asset(
+            'assets/animations/Animation - 1702312178380 (1).json'),
+      ),
+    );
   }
 }
+
